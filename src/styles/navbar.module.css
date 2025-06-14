@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none !important;
+  color: inherit;
+}
