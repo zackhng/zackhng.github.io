@@ -1,16 +1,37 @@
-.nav {
+.navbar {
   display: flex;
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
-  justify-content: space-between;
-  gap: 1rem;
+  /* border: 1px solid red; */
+  flex-direction: column;
+  text-align: center;
 }
 
-.nav a {
-  text-decoration: none;
+.leftVerticle {
+  display:flex;
+  /* border: 1px solid blue; */
+  flex-direction: column;
+  text-align: left;
+  white-space: pre;
 }
 
-.link {
-  text-decoration: none !important;
-  color: inherit;
+.rightVerticle {
+  display:flex;
+  /* border: 1px solid blue; */
+  flex-direction: column;
+  text-align: right;
+  white-space: pre;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 3;
+  width: 100%;
+  align-items: center;
+}
+
+.navbarContent {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 3;
+  justify-content: space-evenly;
 }

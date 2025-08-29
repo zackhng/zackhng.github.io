@@ -1,11 +1,13 @@
 import Image from "next/image";
-export default function ProfilePicture() {
+import style from "@/styles/profilepic.module.css"
+export default function ProfilePicture({imagePath}) {
     return (
-        <div style={{position: "relative" , width: "150px" , height: "150px" }}>
-            <Image src="/images/selfie.jpg"
-            alt="Profile Picture"
-            fill
-            style={{objectFit: 'contain'}}
+        <div className={style.pictureFrame}>
+            <Image 
+            className={style.profilepic} 
+            src={imagePath} 
+            fill 
+            alt ="profile picture"
             ></Image>
         </div>
     );

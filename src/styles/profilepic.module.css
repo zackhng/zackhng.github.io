@@ -1,0 +1,9 @@
+.pictureFrame {
+    width: 150px;
+    height: 150px;
+    position: relative; /* required for fill */
+}
+
+.profilepic {
+    object-fit: cover;   /* keeps aspect ratio while filling */
+}

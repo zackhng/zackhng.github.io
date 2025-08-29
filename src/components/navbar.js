@@ -1,28 +1,26 @@
-import Link from "next/link";
-import styles from '@/styles/navbar.module.css'; // ✅ Correct path
+"use client"
+import style from "@/styles/navbar.module.css"
+import useDeviceSize from "@/hooks/useDeviceSize";
+import { useEffect } from "react";
 
-
-
-
-export default function Navbar({style}) {
-    return (
-    <nav 
-    style={{ display: 'flex', 
-    padding: '1rem', 
-    paddingLeft: '10%',
-    paddingRight: '10%',
-    paddingTop: '30px',
-    borderBottom: '1px solid #ccc' , 
-    justifyContent: 'space-between',
-    width: '100%' , 
-    textDecoration: "none",
-    ...style}}>
-            <h1>Ng Zhao Hui</h1>
-            <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>Home</a>
-            <a href="/about" style={{ textDecoration: 'none', color: 'inherit' }}>About</a>
-            <a href="/projects" style={{ textDecoration: 'none', color: 'inherit' }}>Projects</a>
-            <a href="/resume" style={{ textDecoration: 'none', color: 'inherit' }}>Resume</a>
-
-    </nav>
-    );
+export default function Navbar({navbarArray}) {
+  const [width, height] = useDeviceSize();
+  console.log(width)
+  const underscoreWidth = "-".repeat(width/5.32);
+  const underscoreHeight = '|\n'.repeat(Math.floor(height/250))
+  return (
+    <div className={style.navbar}>
+      <div>{underscoreWidth}</div>
+      <div className={style.contentContainer}>
+        <div className={style.leftVerticle}>{underscoreHeight}</div>
+        {navbarArray.map((item)=>(
+          <div key={item.name} className={style.navbarContent}>
+            <a href={item.link}>{item.name}</a>
+          </div>
+        ))}
+        <div className={style.rightVerticle}>{underscoreHeight}</div>
+      </div>
+      <div>{underscoreWidth}</div>
+    </div>
+  );
 }
