@@ -5,7 +5,7 @@ export default function Home() {
     <div style={{display: 'flex',
       flexDirection: 'row'
     }}>
-        <ProfilePicture imagePath={"/images/selfie.jpg"}/>
+        <ProfilePicture imagePath={"/images/selfie.jpg"} scale={100}/>
         <Introduction />
     </div>
   
