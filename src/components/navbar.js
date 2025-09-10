@@ -1,12 +1,11 @@
 "use client"
 import style from "@/styles/navbar.module.css"
 import useDeviceSize from "@/hooks/useDeviceSize";
-import { useEffect } from "react";
 
 export default function Navbar({navbarArray}) {
   const [width, height] = useDeviceSize();
   console.log(width)
-  const underscoreWidth = "-".repeat(width/5.32);
+  const underscoreWidth = "-".repeat(width/5.4);
   const underscoreHeight = '|\n'.repeat(Math.floor(height/250))
   return (
     <div className={style.navbar}>

@@ -1,0 +1,19 @@
+{
+    "title": "Welcome to my Website !",
+    "name":"Ng Zhao Hui",
+    "shortIntro":"Hi! I'm Zhao Hui, a third year computer science student passionate about new technologies to build maintainable and scalable systems. I aim to specialize in financial technologies.",
+    "passion":"I love building projects that are unique and complex which challenges me to learn more everyday.",
+    "goal":"I aim to build maintainable, scalable and bug-free projects to solve real-world problems and continue learning new technologies everyday.",
+    "education": "B.Eng. Computer Science, SUTD",
+    "links": {
+        "linkedin" : "www.linkedin.com/in/zhaohuing",
+        "email" : "zhaohui_ng@mymail.sutd.edu.sg",
+        "number" : "+65 97281306"
+    },
+    "skills": {
+        "lang": ["Java","Python","Typescript","SQL", "HTML", "CSS"],
+        "frameworks": ["Next.js", "Express.js", "Flask", "Jest", "Cypress"],
+        "tools": ["Git", "Figma", "JMeter", "Postman", "GitHub Actions"]
+    }
+
+}

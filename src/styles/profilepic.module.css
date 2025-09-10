@@ -1,9 +1,18 @@
 .pictureFrame {
-    width: 150px;
-    height: 150px;
-    position: relative; /* required for fill */
+    position: relative;
+    display: inline-block;
+    /* Optional: add padding or border if desired */
+}
+
+.asciiFrame {
+    font-family: monospace;
+    line-height: 1em;
+    margin: 0;
+    white-space: pre; /* preserve spaces and line breaks */
 }
 
 .profilepic {
-    object-fit: cover;   /* keeps aspect ratio while filling */
+    position: absolute;
+    image-rendering: pixelated;
+    object-fit: cover; /* maintains aspect ratio */
 }
