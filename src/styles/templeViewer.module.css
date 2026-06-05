@@ -1,0 +1,31 @@
+.frame {
+    position: relative;
+    border: 2px solid var(--ink);
+    background: #ffffff;
+    overflow: hidden;
+    box-shadow: 6px 6px 0 var(--ink);
+}
+
+.viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.viewport > div {
+    touch-action: none;
+}
+
+.tag {
+    position: absolute;
+    left: 0.6rem;
+    bottom: 0.5rem;
+    color: var(--ink);
+    font-size: 0.7rem;
+    opacity: 0.5;
+    font-family: ui-monospace, "Courier New", monospace;
+    pointer-events: none;
+    z-index: 2;
+}

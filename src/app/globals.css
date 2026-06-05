@@ -1,12 +1,27 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Hui (徽派) palette: 粉墙黛瓦 — paper-white walls, ink-dark tiles */
+  --paper: #f4f1ea;
+  --ink: #1f1d1a;
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
+/* Explicit user choice via the navbar toggle (data-theme on <html>) */
+:root[data-theme="light"] {
+  --paper: #f4f1ea;
+  --ink: #1f1d1a;
+}
+
+:root[data-theme="dark"] {
+  --paper: #1a1916;
+  --ink: #e8e3d8;
+}
+
+/* System default, only when the user hasn't chosen explicitly */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #000000;
+  :root:not([data-theme]) {
+    --paper: #1a1916;
+    --ink: #e8e3d8;
   }
 }
 
@@ -19,9 +34,10 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-monospace, "Courier New", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 * {
@@ -33,10 +49,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

@@ -1,0 +1,31 @@
+[
+  {
+    "id": "agentguard",
+    "title": "AgentGuard",
+    "role": "CONTRIBUTOR",
+    "description": "Dual-stream anomaly detection for LLM agent servers. It fuses OS telemetry and LLM action logs through a Mamba + Transformer architecture to catch prompt injection, data exfiltration and resource-abuse attacks that are invisible to either signal alone.",
+    "tech": ["Python", "PyTorch", "TypeScript", "Docker"]
+  },
+  {
+    "id": "smarthealth",
+    "title": "SmartHealth",
+    "role": "CONTRIBUTOR",
+    "description": "An all-in-one mobile health-management app that streamlines diet, medication and recovery tracking, offers personalised AI-driven suggestions, and connects users with nearby medical facilities.",
+    "tech": ["Java", "Android", "OpenAI", "Google"]
+  },
+  {
+    "id": "scamsniper",
+    "title": "ScamSniper",
+    "role": "CONTRIBUTOR",
+    "description": "An AI-powered scam detection and awareness platform that analyses messages and content to flag potential scams and help users stay safe online.",
+    "tech": ["Next.js", "TypeScript", "Prisma", "Supabase"]
+  },
+  {
+    "id": "c4t6-hotelbooking",
+    "title": "C4T6-HotelBooking",
+    "role": "CONTRIBUTOR",
+    "description": "A full-stack hotel booking platform supporting hotel search, room booking and reservation management, built with a modern React front end and a Node/Express + PostgreSQL backend. Mentored by Ascenda and SUTD Faculty.",
+    "tech": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Tailwind"]
+  }
+]
+

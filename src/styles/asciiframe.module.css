@@ -1,0 +1,22 @@
+.wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.frame {
+    font-family: ui-monospace, "Courier New", monospace;
+    line-height: 1em;
+    margin: 0;
+    white-space: pre;
+    color: var(--ink);
+    user-select: none;
+    /* dynamic scaling: grows/shrinks with the viewport, clamped for sanity */
+    font-size: clamp(6px, 1.7vw, 12px);
+}
+
+.image {
+    position: absolute;
+    object-fit: cover;
+    filter: grayscale(0.1) contrast(1.02);
+}

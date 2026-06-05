@@ -1,0 +1,33 @@
+.home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 3rem;
+    align-items: start;
+    font-family: ui-monospace, "Courier New", monospace;
+    color: var(--ink);
+}
+
+.left {
+    min-width: 0;
+}
+
+/* The 3D panel stays embedded in view while the content scrolls */
+.right {
+    position: sticky;
+    top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .home {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .right {
+        position: static;
+        order: -1;
+    }
+}
