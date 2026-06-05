@@ -18,6 +18,16 @@
     touch-action: none;
 }
 
+/* three's AsciiEffect re-creates its <td> every frame with an inline
+   fixed size + overflow:hidden that the glyph block underfills; force
+   the cell back to its natural size so the JS scale-to-fit is exact.
+   (!important is required to beat the inline styles.) */
+.viewport td {
+    width: max-content !important;
+    height: max-content !important;
+    overflow: visible !important;
+}
+
 .tag {
     position: absolute;
     left: 0.6rem;
@@ -28,4 +38,82 @@
     font-family: ui-monospace, "Courier New", monospace;
     pointer-events: none;
     z-index: 2;
+}
+
+.stack {
+    position: relative;
+}
+
+/* ---- hover-tag popup ----
+   floats in the gap below the panel (over the leetcode board if tall)
+   so appearing/disappearing never reflows the page */
+.popup {
+    position: absolute;
+    top: calc(100% + 0.9rem);
+    left: 0;
+    right: 0;
+    z-index: 5;
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 0.7rem 0.8rem 0.8rem;
+    font-family: ui-monospace, "Courier New", monospace;
+    color: var(--ink);
+    animation: popupIn 140ms ease-out;
+}
+
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* card background stays white, so keep the text black in dark mode
+   (--ink flips to a light tone there and would wash out) */
+:global([data-theme="dark"]) .popup {
+    color: #000000;
+}
+
+.popupTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.35rem;
+}
+
+.popupCategory {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.1rem 0.4rem;
+    border: 1px solid currentColor;
+}
+
+.popupCategory[data-category="architecture"] {
+    color: #c42a14;
+}
+
+.popupCategory[data-category="object"] {
+    color: #9a7607;
+}
+
+.popupCategory[data-category="nature"] {
+    color: #2e7347;
+}
+
+.popupTitle {
+    margin: 0 0 0.3rem;
+    font-size: 0.85rem;
+}
+
+.popupDesc {
+    margin: 0;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    opacity: 0.85;
 }
