@@ -14,10 +14,19 @@
     min-width: 0;
 }
 
-/* The 3D panel stays embedded in view while the content scrolls */
+/* The 3D panel stays embedded in view while the content scrolls;
+   top offset clears the sticky navbar */
 .right {
     position: sticky;
-    top: 1.5rem;
+    top: 4.5rem;
+}
+
+/* leetcode board under the temple panel; the gap leaves room for the
+   hover popup, which overlays it without reflowing the layout */
+.leetcodeSlot {
+    margin-top: 5rem;
+    /* container queries let the board's font scale to exactly this width */
+    container-type: inline-size;
 }
 
 @media (max-width: 900px) {

@@ -1,0 +1,87 @@
+/* ---- the CLI dashboard ---- */
+/* font-size lives on the wrapper so the avatar overlay's ch/em units
+   resolve against the exact same metrics as the <pre> glyph grid */
+.boardWrap {
+    position: relative;
+    display: block;
+    /* Courier New pinned first: its advance width is exactly 0.6em, which
+       the width formula below depends on */
+    font-family: "Courier New", ui-monospace, monospace;
+    /* fallback for browsers without container queries */
+    font-size: clamp(6.5px, 2.4vw, 11.5px);
+    /* board is 50 chars wide x 0.6em advance = 30em; size the font so the
+       glyph grid spans exactly the column width — same as the temple panel */
+    font-size: calc(100cqw / 30);
+}
+
+.board {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1em;
+    margin: 0;
+    white-space: pre;
+    color: var(--ink);
+    user-select: none;
+}
+
+.avatar {
+    position: absolute;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+.cornerTag {
+    margin-top: 0.5rem;
+    text-align: right;
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+/* LeetCode-style difficulty colors, tuned per theme */
+.easy {
+    color: #1f8a70;
+}
+.medium {
+    color: #b8860b;
+}
+.hard {
+    color: #c42a14;
+}
+.amber {
+    color: #c8962e;
+}
+
+:global([data-theme="dark"]) .easy {
+    color: #00b8a3;
+}
+:global([data-theme="dark"]) .medium {
+    color: #ffc01e;
+}
+:global([data-theme="dark"]) .hard {
+    color: #ef4743;
+}
+
+/* ---- error state ---- */
+.retry {
+    margin-top: 0.8rem;
+    background: none;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-family: ui-monospace, "Courier New", monospace;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+}
+
+.retry:hover {
+    color: #c8962e;
+    border-color: #c8962e;
+}
+
+.errDetail {
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    opacity: 0.5;
+    max-width: 40ch;
+    overflow-wrap: break-word;
+}
