@@ -96,36 +96,11 @@
     font-size: 0.72rem;
 }
 
-.projects {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.project {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--ink);
-    padding: 0.5rem 0.7rem;
-}
-
-.projTitle {
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-
-.projTech {
-    font-size: 0.74rem;
-    opacity: 0.75;
-}
-
-.more {
-    align-self: flex-start;
-    font-size: 0.8rem;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    margin-top: 0.25rem;
+.projectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 0.5rem;
 }
 
 .section a {

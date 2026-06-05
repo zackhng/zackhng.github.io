@@ -1,0 +1,204 @@
+.wrapper {
+    font-family: ui-monospace, "Courier New", monospace;
+    color: var(--ink);
+    padding: 2rem 1.5rem 4rem;
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.topRow {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border-bottom: 1px dashed var(--ink);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.h1 {
+    font-size: 1.6rem;
+}
+
+.pdfLink {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.pdfLink:hover {
+    color: #c8962e;
+}
+
+.header {
+    margin-bottom: 1.75rem;
+}
+
+.name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.contact {
+    font-size: 0.78rem;
+    opacity: 0.8;
+    margin-top: 0.3rem;
+    word-break: break-word;
+}
+
+.contact a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.contact a:hover {
+    opacity: 0.7;
+}
+
+/* ---- tree-style sections ---- */
+.section {
+    margin: 0;
+}
+
+/* "├── TITLE ────────" — the tail is a border so it stretches responsively */
+.rule {
+    display: flex;
+    align-items: center;
+    gap: 0.6ch;
+}
+
+.rule::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--ink);
+    opacity: 0.45;
+}
+
+.ruleHead {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    white-space: pre;
+}
+
+/* the │ rail: a border aligned under the ├ glyph */
+.body {
+    border-left: 1px solid var(--ink);
+    margin-left: 0.5ch;
+    padding: 0.9rem 0 1.4rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+/* last section (└──): no rail below the corner */
+.bodyLast {
+    border-left: none;
+    padding-left: 2.1ch;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.entryHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.entryTitle {
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.entryDate {
+    font-size: 0.78rem;
+    opacity: 0.65;
+    white-space: nowrap;
+}
+
+.entrySub {
+    font-size: 0.82rem;
+    font-style: italic;
+    opacity: 0.85;
+}
+
+.note {
+    font-size: 0.85rem;
+}
+
+/* "+" bullets with a hanging indent so wrapped lines stay aligned */
+.bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin: 0.2rem 0 0;
+    padding: 0;
+}
+
+.bullets li {
+    position: relative;
+    padding-left: 2ch;
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+
+.bullets li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    opacity: 0.6;
+}
+
+/* ---- skills ---- */
+.skills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 0;
+}
+
+.skillRow {
+    display: flex;
+    gap: 0.5ch;
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+
+.skillKey {
+    flex: 0 0 11ch;
+    font-weight: 700;
+}
+
+.skillVal {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        padding: 1.25rem 1rem 3rem;
+    }
+
+    .entryHead {
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+
+    .skillRow {
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+
+    .skillKey {
+        flex: none;
+    }
+}

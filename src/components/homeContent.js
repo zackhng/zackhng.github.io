@@ -1,6 +1,7 @@
 import intro from "@/data/introduction.json";
 import projects from "@/data/projects.json";
 import AsciiFrame from "@/components/asciiFrame";
+import Project from "@/components/project";
 import styles from "@/styles/homeContent.module.css";
 
 const SKILL_GROUPS = [
@@ -14,7 +15,7 @@ export default function HomeContent() {
         <div className={styles.content}>
             <section className={styles.hero}>
                 <div className={styles.heroFrame}>
-                    <AsciiFrame imagePath="/images/selfie.jpg" scale={0.24} alt={intro.name} />
+                    <AsciiFrame imagePath="/images/selfie_2.jpg" scale={0.32} alt={intro.name} />
                 </div>
                 <div className={styles.heroText}>
                     <p className={styles.kicker}>~/ portfolio</p>
@@ -44,19 +45,13 @@ export default function HomeContent() {
                 </div>
             </section>
 
-            <section className={styles.section}>
+            <section className={styles.section} id="projects" style={{ scrollMarginTop: "6rem" }}>
                 <h2 className={styles.h2}>Projects</h2>
-                <ul className={styles.projects}>
+                <div className={styles.projectGrid}>
                     {projects.map((p) => (
-                        <li key={p.id} className={styles.project}>
-                            <span className={styles.projTitle}>{p.title}</span>
-                            <span className={styles.projTech}>{p.tech.join(" · ")}</span>
-                        </li>
+                        <Project key={p.id} project={p} />
                     ))}
-                </ul>
-                <a className={styles.more} href="/projects">
-                    see all projects →
-                </a>
+                </div>
             </section>
 
             <section className={styles.section} id="contact" style={{ scrollMarginTop: "6rem" }}>
@@ -69,9 +64,6 @@ export default function HomeContent() {
                 </p>
                 <p>
                     Email: <a href={`mailto:${intro.links.email}`}>{intro.links.email}</a>
-                </p>
-                <p>
-                    Phone: <a href={`tel:${intro.links.number}`}>{intro.links.number}</a>
                 </p>
             </section>
         </div>

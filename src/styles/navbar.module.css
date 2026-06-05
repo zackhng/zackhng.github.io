@@ -1,5 +1,8 @@
 .navbar {
-    position: relative;
+    /* pinned to the top so the anchor jumps are always within reach */
+    position: sticky;
+    top: 0;
+    z-index: 20;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,9 +15,9 @@
 .items {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
-    gap: 1.4rem;
+    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -29,39 +32,58 @@
 .cell:nth-child(2) { animation-delay: 0.12s; }
 .cell:nth-child(3) { animation-delay: 0.2s; }
 .cell:nth-child(4) { animation-delay: 0.28s; }
+.cell:nth-child(5) { animation-delay: 0.36s; }
 
 .item {
+    position: relative;
     display: inline-block;
+    padding: 0.2rem 0;
     color: var(--ink);
     text-decoration: none;
     cursor: pointer;
-    transition: color 0.15s ease, filter 0.15s ease, transform 0.15s ease;
+    transition: color 0.15s ease, transform 0.15s ease;
 }
 
 .art {
     margin: 0;
     white-space: pre;
     line-height: 1;
-    font-size: clamp(7px, 1vw, 11px);
-    letter-spacing: 0;
+    font-size: clamp(11px, 1.3vw, 14px);
+    letter-spacing: 0.12em;
     user-select: none;
 }
 
-/* hover: temple-amber glow + terminal flicker */
-.item:hover {
-    color: #c8962e;
-    transform: translateY(-2px);
-    filter: drop-shadow(0 0 3px rgba(200, 150, 46, 0.55));
-    animation: flicker 0.45s steps(2, end) infinite;
+/* a thin beam draws in beneath the label — quiet, structural */
+.item::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: -1px;
+    border-bottom: 1px solid currentColor;
+    opacity: 0.65;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
 }
 
-/* active route: highlighted seal */
+/* hover: temple-amber lift */
+.item:hover {
+    color: #c8962e;
+    transform: translateY(-1px);
+}
+
+.item:hover::after {
+    transform: scaleX(1);
+}
+
+/* active route: heavy corners (set in markup) + amber + resting beam */
 .active {
     color: #c8962e;
 }
-.active .art {
-    text-shadow: 0 0 5px rgba(200, 150, 46, 0.4);
-    font-weight: 700;
+
+.active::after {
+    transform: scaleX(1);
 }
 
 .toggleWrap {
@@ -95,13 +117,6 @@
     }
 }
 
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    40% { opacity: 0.82; }
-    50% { opacity: 0.58; }
-    60% { opacity: 0.9; }
-}
-
 @media (max-width: 600px) {
     .navbar {
         padding: 0.5rem 0.5rem;
@@ -109,7 +124,7 @@
         gap: 0.4rem;
     }
     .items {
-        gap: 0.9rem;
+        gap: 1rem;
     }
     .toggleWrap {
         position: static;
@@ -123,7 +138,8 @@
         animation: none;
         opacity: 1;
     }
-    .item:hover {
-        animation: none;
+    .item,
+    .item::after {
+        transition: none;
     }
 }

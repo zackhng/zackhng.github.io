@@ -1,0 +1,63 @@
+{
+    "name": "Ng Zhao Hui",
+    "contact": {
+        "email": "1007803@mymail.sutd.edu.sg",
+        "linkedin": "linkedin.com/in/zhaohui-ng-658280179",
+        "github": "github.com/zackhng"
+    },
+    "education": {
+        "school": "Singapore University of Technology and Design (SUTD)",
+        "degree": "Bachelor of Engineering in Computer Science and Design (Artificial Intelligence Track)",
+        "dates": "Sep 2023 – Apr 2027",
+        "honors": ["Singapore Chinese Chamber of Commerce and Industry (SCCCI) Scholar"]
+    },
+    "experience": [
+        {
+            "company": "AI Singapore",
+            "title": "Intern",
+            "dates": "May 2026 – Present",
+            "bullets": [
+                "Designed a budget allocation model for autonomous LLM agents to dynamically distribute token usage per task based on overall user budget, mitigating runaway behaviour such as infinite loops, excessive tool calls, and uncontrolled cost escalation.",
+                "Implemented deterministic tool access policies for agentic systems, enabling fine-grained allow/deny control over tool execution based on predefined task categories, preventing unauthorised actions in multi-step workflows.",
+                "Integrated LangChain-based PII detection mechanisms into the agent pipeline to identify and restrict sensitive information in both inputs and outputs, reducing risk of data exposure in LLM-generated responses.",
+                "Developed a rule-based adversarial guardrail system to detect prompt injection and context manipulation attempts by analyzing user prompts and retrieved context for known attack patterns and injection artefacts.",
+                "Augmented rule-based safeguards with an LLM-as-a-judge evaluation layer to classify high-risk or ambiguous agent behaviors, improving detection coverage for complex or unseen adversarial exploitation strategies."
+            ]
+        },
+        {
+            "company": "Covalent Capital",
+            "title": "Intern",
+            "dates": "Sep 2025 – Dec 2025",
+            "bullets": [
+                "Reduced financial bond data processing and reporting latency from 30 minutes to under 1 minute by designing a modular data-processing and retrieval pipeline with structured context injection for LLM-driven analytics and report generation.",
+                "Built and deployed FastAPI-based LLM inference services for data extraction, summarization, and automated report generation, enabling production integration of LLM workflows into financial systems.",
+                "Developed few-shot prompting strategies using Claude to enforce schema-constrained, domain-specific financial narrative generation, improving output consistency and reducing manual post-processing.",
+                "Implemented structured LLM output validation and guardrails (schema enforcement and rule-based checks) to improve factual consistency, format adherence, and reduce hallucinations in client-facing reports.",
+                "Designed LLM-driven document generation pipeline producing financial reports in HTML, DOCX, and PDF formats by combining retrieval-augmented context with structured generation workflows."
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "title": "Hierarchical Dual-Stream Anomaly Detection for Agentic AI Behaviour",
+            "subtitle": "50.038 Theory and Practice of Deep Learning",
+            "dates": "Jan 2026 – Present",
+            "bullets": [
+                "Designed a hierarchical dual-stream anomaly detection architecture separating system experience (server telemetry) from agent behavior (action sequences), producing calibrated anomaly probability score.",
+                "Implemented a Telemetry Stream using Mamba State Space Models to model long-horizon Linux telemetry signals (CPU, syscalls, network activity) with linear-time sequence processing for real-time deployment.",
+                "Built an Action Sequence Stream using a Transformer encoder to learn semantic dependencies across agent tool/API calls encoded via tool type, argument hash, latency, token usage, and autonomy signals.",
+                "Developed cross-attention fusion modules aligning system-level dynamics with agent behavioral patterns, enabling detection of correlated anomalies.",
+                "Engineered windowed dual time-series inputs and end-to-end PyTorch training pipelines supporting scalable experimentation and security-focused evaluation."
+            ]
+        }
+    ],
+    "awards": [
+        "What The Hack 2024 — 1st Place Winner (Circular Economy and Sustainable Living)",
+        "Asia Impact Hackathon — Excellence Award"
+    ],
+    "skills": {
+        "languages": "Java, Python, JavaScript, TypeScript, HTML, SQL",
+        "frameworks": "PyTorch, LangChain, Scikit-learn, Matplotlib, Numpy, Pandas, FastAPI, React, Node.js, Flask, OpenSearch",
+        "tools": "Docker, OpenAI API, Claude API, Git, GitHub Actions, Postman, JMeter, REST API development, Cypress, Jest"
+    }
+}

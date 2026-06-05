@@ -4,32 +4,18 @@ import { usePathname } from "next/navigation";
 import ThemeToggle from "./themeToggle";
 import styles from "@/styles/navbar.module.css";
 
-/* Each route is a seal-stamp: a Chinese motif on top of a CLI seal block.
-   Motifs (pure ASCII, no Chinese characters):
-     HOME     -> temple roof eave
-     ABOUT    -> bamboo vertical rhythm
-     PROJECTS -> cloud scroll
-     CONTACT  -> seal / stamp dots                                            */
+/* Minimal ASCII labels with a quiet, architectural cue:
+   light corner glyphs frame each route (┌ HOME ┐); the active route is
+   framed with heavy corners (┏ HOME ┓) — ink pressure, not decoration. */
 const ITEMS = [
-    { label: "HOME", href: "/", motif: "_/^\\_" },
-    { label: "ABOUT", href: "/#about", motif: "|:|:|" },
-    { label: "PROJECTS", href: "/projects", motif: "(~^~)" },
-    { label: "CONTACT", href: "/#contact", motif: "[#:#]" },
+    { label: "HOME", href: "/" },
+    { label: "ABOUT", href: "/#about" },
+    { label: "PROJECTS", href: "/#projects" },
+    { label: "RESUME", href: "/resume" },
+    { label: "CONTACT", href: "/#contact" },
 ];
 
-// Build a 4-line ASCII seal: motif / top rule / | LABEL | / bottom rule
-function stamp(label, motif) {
-    const inner = ` ${label} `;
-    const w = inner.length;
-    const total = w + 2;
-    const center = (s) => {
-        const pad = Math.max(0, total - s.length);
-        const left = Math.floor(pad / 2);
-        return " ".repeat(left) + s + " ".repeat(pad - left);
-    };
-    const rule = "+" + "-".repeat(w) + "+";
-    return [center(motif), rule, "|" + inner + "|", rule].join("\n");
-}
+const frame = (label, active) => (active ? `┏ ${label} ┓` : `┌ ${label} ┐`);
 
 export default function Navbar() {
     const pathname = usePathname() || "/";
@@ -53,9 +39,9 @@ export default function Navbar() {
                                 aria-label={it.label}
                                 aria-current={active ? "page" : undefined}
                             >
-                                <pre className={styles.art} aria-hidden="true">
-                                    {stamp(it.label, it.motif)}
-                                </pre>
+                                <span className={styles.art} aria-hidden="true">
+                                    {frame(it.label, active)}
+                                </span>
                                 <span className={styles.sr}>{it.label}</span>
                             </Link>
                         </li>
