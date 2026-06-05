@@ -9,6 +9,7 @@
     line-height: 1em;
     margin: 0;
     white-space: pre;
+    /* follows the theme: dark ink in light mode, light ink in dark mode */
     color: var(--ink);
     user-select: none;
     /* dynamic scaling: grows/shrinks with the viewport, clamped for sanity */
